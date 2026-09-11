@@ -1,0 +1,45 @@
+:root {
+    --h1-font-family: 'bebas neue', sans-serif;
+    --body-font-family: 'poppins';
+    --color-pallete: #5200FF
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #E5E5E5;
+}
+
+.hero {
+    width: 510px;
+    height: 576px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-pallete);
+    background-image: url("view-overlay.jpg");
+
+
+
+}
+
+/* .photo {
+    width: 510px;
+    height: 576px;
+   
+} */
+
+h1 {
+    font-family: var(--h1-font-family);
+}
+
+p {
+    font-family: var(--body-font-family);
+}
