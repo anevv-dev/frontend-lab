@@ -1,39 +1,74 @@
-// let firstCard = 10
-// let secondCard = 4
-// let cards = [firstCard, secondCard]
-// let sum = firstCard + secondCard
-// let hasBlackJack = false
-// let isAlive = true
-// let message = ""
-// let messageEl = document.getElementById("message-el")
-// let sumEl = document.getElementById("sum-el")
-// let cardsEl = document.getElementById("cards-el")
+let player = {
+    name: "Vena",
+    chips: 500
+}
+let cards = []
+let sum = 0
+let hasBlackJack = false
+let isAlive = false
+let message = ""
+let messageEl = document.getElementById("message-el")
+let sumEl = document.getElementById("sum-el")
+let cardsEl = document.getElementById("cards-el")
+let playerEl = document.getElementById("player-el")
 
-// function startGame() {
-//     renderGame()
-// }
-// function renderGame() {
 
-//     cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1]
-//     sumEl.textContent = "Sum: " + sum
+playerEl.textContent = player.name + ": $" + player.chips
 
-//     if (sum <= 20) {
-//         message = "Do you want to draw a new card? 🙃"
-//     } else if (sum === 21) {
-//         message = "Woohoo!! You've got a Blackjack! 🎉"
-//         hasBlackJack = true
-//     } else {
-//         message = "You're out of the game! 😭"
-//         isAlive = false
-//     }
+function getRandomCard() {
 
-//     messageEl.textContent = message
-// }
+    let randomNumber = Math.floor(Math.random() * 13) + 1
+    if (randomNumber > 10) {
+        return 10
+    } else if (randomNumber === 1) {
+        return 11
+    } else {
+        return randomNumber
+    }
 
-// function newCard() {
-//     cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
+}
 
-// }
+function startGame() {
+    isAlive = true
+    let randomCard = getRandomCard()
+
+    const firstCard = getRandomCard()
+    const secondCard = getRandomCard()
+    cards = [firstCard, secondCard]
+    sum = firstCard + secondCard
+    renderGame()
+
+}
+
+function renderGame() {
+    cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1]
+    sumEl.textContent = "Sum: " + sum
+
+    if (sum <= 20) {
+        message = "Do you want to draw a new card? 🙃"
+    } else if (sum === 21) {
+        message = "Woohoo!! You've got a Blackjack! 🎉"
+        hasBlackJack = true
+    } else {
+        message = "You're out of the game! 😭"
+        isAlive = true
+    }
+
+    messageEl.textContent = message
+}
+
+function newCard() {
+    if (isAlive === true && hasBlackJack === false) {
+        const card = getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()
+    }
+}
+
+
+
+
 
 // Objects in Javascript
 
@@ -85,7 +120,6 @@
 
 
 
-
 // LOGICAL "AND" OPERATOR
 
 // let dayOfMonth = 31
@@ -109,4 +143,25 @@
 
 // console.log(getRandomHand());
 
+// FOR LOOP PRACTICE
+// start counting from 0, while i is less than 6, increase i by 2
+// for (let i = 0; i < 6; i += 2) {
+// console.log(i)
+// }
 
+// This is a for loop that logs out all the cards in the cards array.
+// It starts at index 0 and continues until it reaches the last index of the array,
+//  logging each card to the console. Even if there's a new card added to the array,
+// the for loop will still log it out because it checks the length of the array each time it runs.
+
+// let cards = [7, 3, 9]
+// for (let i = 0; i < cards.length; i++) {
+//     console.log(cards[i])
+// }
+
+//let sentence = ["Hello ", "my ", "name ", "is ", "Vena"]
+//let greetingEl = document.getElementById("greeting-el")
+
+//for (let i = 0; i < sentence.length; i++) {
+//    greetingEl.textContent += sentence[i] + " "
+//}
