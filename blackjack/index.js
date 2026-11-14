@@ -59,7 +59,7 @@ function renderGame() {
 
 function newCard() {
     if (isAlive === true && hasBlackJack === false) {
-        const card = getRandomCard()
+        let card = getRandomCard()
         sum += card
         cards.push(card)
         renderGame()
@@ -85,7 +85,8 @@ function newCard() {
 
 // logData()
 
-// if condition practice
+// if condition practice: create a conditional statement (if/else/else if) that logs the
+// discount a person will get for a train ticket based on their age.
 
 // let age = 15
 // let trainPrice = ""
@@ -107,10 +108,20 @@ function newCard() {
 // FOR LOOP AND (PUSH,POP,SHIFT,UNSHIFT) PRACTICE
 
 // let largeCountries = ["Tuvalu", "India", "USA", "Indonesia", "Monaco"];
+
+//pop() removes the last element from an array and returns that element.
+// This method changes the length of the array.
 // largeCountries.pop();
-// largeCountries.shift();
-// largeCountries.unshift("China");
+
+//push() adds one or more elements to the end of an array and returns the new length of the array.
 // largeCountries.push("Pakistan");
+
+//shift() removes the first element from an array and returns that removed element.
+// largeCountries.shift();
+
+//unshift() adds one or more elements to the beginning of an array and returns the new length of the array.
+// largeCountries.unshift("China");
+
 
 
 // for (let i = 0; i < largeCountries.length; i++) {
@@ -135,6 +146,8 @@ function newCard() {
 // ROCK PAPER, SCISSORS GAME
 
 // let hands = ["rock", "paper", "scissors"]
+
+//create a function that returns a random item from the array of hands.
 
 // function getRandomHand() {
 //     let randomIndex = Math.floor(Math.random() * hands.length)
