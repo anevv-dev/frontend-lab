@@ -1,21 +1,61 @@
-let myLeads = ["www.awesomelead.com", "www.anotherlead.com", "www.yetanotherlead.com", "www.lead4.com", "www.lead5.com"]
+
+
+let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const deleteBtn = document.getElementById("delete-btn")
 const ulEl = document.getElementById("ul-el")
 
+// Initialize myLeads from localStorage or use an empty array
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
 
+
+if (leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage
+    render(myLeads)
+}
+
+function render(leads) {
+    let listItems = ""
+    for (let i = 0; i < leads.length; i++) {
+        // listItems += "<li><a target='blank' href='#' >" + myLeads[i] + "</a ></li >"
+        listItems += `
+            <li>
+                <a target='blank' href='${leads[i]}' >
+                   ${leads[i]}
+                </a >
+            </li>`
+
+    }
+    ulEl.innerHTML = listItems
+}
 
 inputBtn.addEventListener("click", function () {
     myLeads.push(inputEl.value)
-    console.log(myLeads)
+    inputEl.value = ""
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
+    render(myLeads)
 })
 
-for (let i = 0; i < myLeads.length; i++) {
-    ulEl.innerHTML += "<li>" + myLeads[i] + " " + "</li>"
-}
+
+//creating a new element
+//setting the text content of the new element
+//appending the new element to the ul
+// const li = document.createElement("li")
+// li.textContent = myLeads[i]
+// ulEl.append(li)
+
 
 
 deleteBtn.addEventListener("click", function () {
-    console.log("Double clicked!")
+    const confirmDelete = confirm("Are you sure you want to delete all leads?")
+    if (confirmDelete) {
+        localStorage.clear()
+        myLeads = []
+        render(myLeads)
+    }
+
 })
+
+
+
