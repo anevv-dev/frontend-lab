@@ -3,11 +3,11 @@
     "name": "Lead Tracker Extension",
     "version": "1.0",
     "description": "A Chrome extension to track and save leads by website.",
+    "permissions": [
+        "tabs"
+    ],
     "action": {
         "default_popup": "index.html",
-        "default_icon": "discount.png",
-        "permissions": [
-            "tabs"
-        ]
+        "default_icon": "discount.png"
     }
 }
